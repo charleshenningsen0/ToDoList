@@ -19,7 +19,6 @@ class mainLogic(QMainWindow, Ui_TODOLIST):
         super().__init__()
         self.setupUi(self)
 
-
         #Task Label
         self.task1Label.setVisible(False)
         self.task2Label.setVisible(False)
@@ -163,7 +162,6 @@ class mainLogic(QMainWindow, Ui_TODOLIST):
         #Maybe actually pass on this, focus on checking off tasks and adding multiple tasks
 
     def addTask(self):
-
         try:
             task = self.addTasklineEdit.text()
             if task == '':
@@ -179,8 +177,6 @@ class mainLogic(QMainWindow, Ui_TODOLIST):
             self.addTasklabel.setStyleSheet("color: rgb(255, 0, 0);")
             self.addTasklineEdit.setText("")
         else:
-            ######
-
             with open('tasksFile.txt', "a") as taskFile:
                 # csv_writer = csv.writer(taskFile)
                 # csv_writer.writerow(task)
@@ -189,7 +185,6 @@ class mainLogic(QMainWindow, Ui_TODOLIST):
 
             self.addTasklineEdit.setText("")
             self.tasksIndex += 1
-            print(self.tasksIndex)
 
 
 
