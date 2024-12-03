@@ -109,16 +109,16 @@ class mainLogic(QMainWindow, Ui_TODOLIST):
         self.task10EditButton.clicked.connect(lambda: self.editTask())
 
 
-        self.doneButton1.clicked.connect(lambda: self.completeTask1())
-        self.doneButton2.clicked.connect(lambda: self.completeTask2(1))
-        self.doneButton3.clicked.connect(lambda: self.completeTask2(2))
-        self.doneButton4.clicked.connect(lambda: self.completeTask2(3))
-        self.doneButton5.clicked.connect(lambda: self.completeTask2(4))
-        self.doneButton6.clicked.connect(lambda: self.completeTask2(5))
-        self.doneButton7.clicked.connect(lambda: self.completeTask2(6))
-        self.doneButton8.clicked.connect(lambda: self.completeTask2(7))
-        self.doneButton9.clicked.connect(lambda: self.completeTask2(8))
-        self.doneButton10.clicked.connect(lambda: self.completeTask2(9))
+        self.doneButton1.clicked.connect(lambda: self.completeTask(0))
+        self.doneButton2.clicked.connect(lambda: self.completeTask(1))
+        self.doneButton3.clicked.connect(lambda: self.completeTask(2))
+        self.doneButton4.clicked.connect(lambda: self.completeTask(3))
+        self.doneButton5.clicked.connect(lambda: self.completeTask(4))
+        self.doneButton6.clicked.connect(lambda: self.completeTask(5))
+        self.doneButton7.clicked.connect(lambda: self.completeTask(6))
+        self.doneButton8.clicked.connect(lambda: self.completeTask(7))
+        self.doneButton9.clicked.connect(lambda: self.completeTask(8))
+        self.doneButton10.clicked.connect(lambda: self.completeTask(9))
 
 
         self.addTaskButton.clicked.connect(lambda : self.addTask())
@@ -129,32 +129,12 @@ class mainLogic(QMainWindow, Ui_TODOLIST):
 
 #creating a complete task event for each done button!!!
 
-    def completeTask1(self):
+
+    def completeTask(self, index):
         self.addTasklabel.setStyleSheet("color: rgb(255, 255, 255);")
         self.addTasklabel.setText("Enter a task!")
-        # self.task1Label.setText("")
-        # self.task1Label.setVisible(False)
-        # self.doneButton1.setVisible(False)
-        if self.tasksIndex == 1:
-            self.task1Label.setText('')
-            self.doneButton1.setVisible(False)
 
-        else:
-            for i in range(self.tasksIndex - 1):
-                self.tasks[i].setText(self.tasks[i + 1].text())
-
-            self.doneButtons[self.tasksIndex-1].setVisible(False)
-            self.tasks[self.tasksIndex-1].setText("")
-
-
-        self.tasksIndex -= 1
-        print(self.tasksIndex)
-
-    def completeTask2(self, index):
-        self.addTasklabel.setStyleSheet("color: rgb(255, 255, 255);")
-        self.addTasklabel.setText("Enter a task!")
         if self.tasksIndex - 1 == index:
-
             self.tasks[index].setText("")
             self.doneButtons[index].setVisible(False)
         else:
@@ -165,19 +145,8 @@ class mainLogic(QMainWindow, Ui_TODOLIST):
         self.doneButtons[self.tasksIndex - 1].setVisible(False)
 
         self.tasksIndex -= 1
-        print(self.tasksIndex)
 
     # for clear button have pop or cheering sound
-
-
-    def completeTask10(self):
-        self.addTasklabel.setStyleSheet("color: rgb(255, 255, 255);")
-        self.addTasklabel.setText("Enter a task!")
-
-        self.task10Label.setText("")
-        self.doneButton10.setVisible(False)
-
-        self.tasksIndex -= 1
 
 
     def openHistory(self):
@@ -217,7 +186,7 @@ class mainLogic(QMainWindow, Ui_TODOLIST):
                 # csv_writer.writerow(task)
                 #maybe add time completed, or time added to file/created
                 taskFile.write(task + '\n')
-            self.addTasklabel.setText("Task Added!")
+
             self.addTasklineEdit.setText("")
             self.tasksIndex += 1
             print(self.tasksIndex)
