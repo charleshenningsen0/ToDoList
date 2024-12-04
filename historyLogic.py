@@ -8,16 +8,11 @@ class historyLogic(QMainWindow, Ui_History):
         super().__init__()
         self.setupUi(self)
 
-        self.backButton.clicked.connect(lambda : self.back())
+        self.backButton.clicked.connect(lambda : self.exit())
 
 
-    def back(self):
+    def exit(self):
         from mainLogic import mainLogic
-        geometry = self.geometry()
-
-        self.window = mainLogic()
-        self.window.setGeometry(geometry)
-        self.window.show()
         self.close()
 
 

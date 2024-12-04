@@ -1,14 +1,13 @@
 from PyQt6.QtWidgets import QApplication, QMainWindow
 import csv
-
-
+import re
 from gui import Ui_TODOLIST
-
 from guiHistory import *
-
 from historyLogic import *
 
 import main
+
+
 class mainLogic(QMainWindow, Ui_TODOLIST):
     mainIsOpen = True
     tasks = []
@@ -18,7 +17,7 @@ class mainLogic(QMainWindow, Ui_TODOLIST):
 
         super().__init__()
         self.setupUi(self)
-
+        #after visible or before, then set the labels to previous labels.If label doesnt exist, set to invisible
         #Task Label
         self.task1Label.setVisible(False)
         self.task2Label.setVisible(False)
@@ -70,10 +69,6 @@ class mainLogic(QMainWindow, Ui_TODOLIST):
 
 
 
-
-
-
-
         #eddit buttons might remove
         self.task1EditButton.setVisible(False)
         self.task2EditButton.setVisible(False)
@@ -95,6 +90,29 @@ class mainLogic(QMainWindow, Ui_TODOLIST):
         self.lineEdit8.setVisible(False)
         self.lineEdit9.setVisible(False)
         self.lineEdit10.setVisible(False)
+
+        #Open file, read lines, pop out compleded tasks, then if length of new lsit is > 10, for i in ragne(len(lines)-10, len(line): add task to task labels
+        # else for len of new list, add to text labels #Swithc to csv
+        with open("tasksFile.txt", "r") as file:
+            lines = file.readlines()
+        # print(lines)
+        uncompletedTasks = []
+        RegExCompletedTask = "^.*True"
+        for line in lines:
+            if re.search(RegExCompletedTask, line):
+                uncompletedTasks.append(line)
+        print(uncompletedTasks)
+
+        if len(uncompletedTasks) == 0:
+            pass
+            #nothing
+        if len(uncompletedTasks) > 10:
+            for i in range(len(lines) - 10, len(lines)):
+                # self.tasks[i].setVisible(True)
+                text = lines[i][6:]
+                print(text)
+                # self.tasks[i].setText()
+
 
         self.task1EditButton.clicked.connect(lambda : self.editTask())
         self.task2EditButton.clicked.connect(lambda: self.editTask())
@@ -128,10 +146,31 @@ class mainLogic(QMainWindow, Ui_TODOLIST):
 
 #creating a complete task event for each done button!!!
 
+    #need to add completed task to completed task file for history
+    #remove task from current tasks, appdend end,
+    # nd in history display form bottom up so completed are at the top
+
+    #Author: "Google AI"
+    #Title: "Overview"
+    #Date: 12/04/24
+    #Location: https://www.google.com/search?q=how+to+remove+a+row+from+a+text+file+in+python+with+regex+in+a+loop&client=safari&sca_esv=fdf7728f28b59cda&rls=en&sxsrf=ADLYWILL1TOQsrtEtcCGjoPIB1TlEBccJw%3A1733342337619&ei=gbRQZ__DJez_ptQP8-3juQQ&ved=0ahUKEwi_iLuy846KAxXsv4kEHfP2OEcQ4dUDCA8&uact=5&oq=how+to+remove+a+row+from+a+text+file+in+python+with+regex+in+a+loop&gs_lp=Egxnd3Mtd2l6LXNlcnAiQ2hvdyB0byByZW1vdmUgYSByb3cgZnJvbSBhIHRleHQgZmlsZSBpbiBweXRob24gd2l0aCByZWdleCBpbiBhIGxvb3BI_zRQiBhYojNwAngBkAEBmAGfAaABuBGqAQQ5LjEzuAEDyAEA-AEBmAIPoAKODMICChAAGLADGNYEGEfCAgUQIRigAcICBRAhGKsCmAMAiAYBkAYIkgcENS4xMKAH3k0&sclient=gws-wiz-serp
 
     def completeTask(self, index):
+        #maybe use task ID instead so you can habe the same name of task
         self.addTasklabel.setStyleSheet("color: rgb(255, 255, 255);")
         self.addTasklabel.setText("Enter a task!")
+        #look through tasks, find task completed, and modify completed to true
+        with open("tasksFile.txt", "r") as file:
+            lines = file.readlines()
+
+        regExTask = f"^Task: {self.tasks[index].text()}"
+
+
+        with open("tasksFile.txt", "w") as file:
+            for line in lines:
+                if not re.search(regExTask, line):
+                    file.write(line)
+            file.write(f"Task: {self.tasks[index].text()}, Completed: {True}\n")
 
         if self.tasksIndex - 1 == index:
             self.tasks[index].setText("")
@@ -146,20 +185,21 @@ class mainLogic(QMainWindow, Ui_TODOLIST):
         self.tasksIndex -= 1
 
     # for clear button have pop or cheering sound
-
-
+    #Try to just have a popup for the history!
+    #need to add current tasks file and when init, insert current task file,
     def openHistory(self):
-
+        #need to retrieve the tasks in a file, when switching from history to home
         geometry = self.geometry()
-
         self.historyWindow = historyLogic()
         self.historyWindow.setGeometry(geometry)
         self.historyWindow.show()
-        self.close()
+
 
     def editTask(self):
         pass
+        #add remove features
         #Maybe actually pass on this, focus on checking off tasks and adding multiple tasks
+
 
     def addTask(self):
         try:
@@ -181,16 +221,8 @@ class mainLogic(QMainWindow, Ui_TODOLIST):
                 # csv_writer = csv.writer(taskFile)
                 # csv_writer.writerow(task)
                 #maybe add time completed, or time added to file/created
-                taskFile.write(task + '\n')
+                taskFile.write(f"Task: {task}, Completed: {False}\n")
 
             self.addTasklineEdit.setText("")
             self.tasksIndex += 1
-
-
-
-
-
-
-
-
 
