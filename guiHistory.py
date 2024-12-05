@@ -14,7 +14,7 @@ class Ui_History(object):
         History.setObjectName("History")
         History.resize(800, 760)
         History.setMinimumSize(QtCore.QSize(800, 760))
-        History.setMaximumSize(QtCore.QSize(680, 800))
+        History.setMaximumSize(QtCore.QSize(800, 760))
         self.label = QtWidgets.QLabel(parent=History)
         self.label.setGeometry(QtCore.QRect(70, 40, 241, 81))
         font = QtGui.QFont()
@@ -48,11 +48,11 @@ class Ui_History(object):
 
     def retranslateUi(self, History):
         _translate = QtCore.QCoreApplication.translate
-        History.setWindowTitle(_translate("History", "Form"))
+        History.setWindowTitle(_translate("History", "History"))
         self.label.setText(_translate("History", "Completed Tasks:"))
         self.completedTaskCountLabel.setText(_translate("History", "0"))
         self.clearHistoryButton.setText(_translate("History", "Clear"))
-        self.backButton.setText(_translate("History", "Back"))
+        self.backButton.setText(_translate("History", "Exit"))
 
 
 if __name__ == "__main__":

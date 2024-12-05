@@ -6,14 +6,10 @@ from historyLogic import *
 
 
 def main():
+
     application = QApplication([])
-
-
     homeWindow = mainLogic()
-
-
     homeWindow.show()
-
     application.exec()
 
     # while True:

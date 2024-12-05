@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="61446308-9c63-429c-8556-13dd468d10a5" name="Changes" comment="task completion works">
+    <list default="true" id="61446308-9c63-429c-8556-13dd468d10a5" name="Changes" comment="Switched to pop up history, started file saving, before switch to csv">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mainLogic.py" beforeDir="false" afterPath="$PROJECT_DIR$/mainLogic.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -22,17 +23,23 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="pop-up" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/charleshenningsen0/ToDoList.git",
-    "accountId": "fcc261d9-d8b8-4cfd-9037-a4901c0553f0"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;charleshenningsen0&quot;
   }
-}]]></component>
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/charleshenningsen0/ToDoList.git&quot;,
+    &quot;accountId&quot;: &quot;fcc261d9-d8b8-4cfd-9037-a4901c0553f0&quot;
+  }
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
 }</component>
@@ -53,7 +60,7 @@
     "Python.mainLogic.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "oneCompleteTask",
+    "git-widget-placeholder": "newFileSetup",
     "settings.editor.selected.configurable": "inlay.hints"
   }
 }]]></component>
@@ -152,6 +159,7 @@
         <item itemvalue="Python.mainLogic" />
         <item itemvalue="Python.historyLogic" />
         <item itemvalue="Python.gui" />
+        <item itemvalue="Python.mainLogic" />
       </list>
     </recent_temporary>
   </component>
@@ -187,7 +195,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733201630694</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Switched to pop up history, started file saving, before switch to csv">
+      <option name="closed" value="true" />
+      <created>1733345972304</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1733345972304</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -201,7 +217,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="oneCompleteTask" />
+                        <option value="pop-up" />
                       </list>
                     </value>
                   </entry>
@@ -215,6 +231,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="task completion works" />
-    <option name="LAST_COMMIT_MESSAGE" value="task completion works" />
+    <MESSAGE value="completeTask as one function!!!" />
+    <MESSAGE value="Switched to pop up history, started file saving, before switch to csv" />
+    <option name="LAST_COMMIT_MESSAGE" value="Switched to pop up history, started file saving, before switch to csv" />
   </component>
 </project>
