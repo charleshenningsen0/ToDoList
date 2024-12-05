@@ -1,6 +1,7 @@
 from PyQt6.QtWidgets import QApplication, QMainWindow
 import csv
 import re
+import os
 from gui import Ui_TODOLIST
 from guiHistory import *
 from historyLogic import *
@@ -91,27 +92,36 @@ class mainLogic(QMainWindow, Ui_TODOLIST):
         self.lineEdit9.setVisible(False)
         self.lineEdit10.setVisible(False)
 
+        #see if you can merge pop up to main
+        #if taskfile.txt exists
         #Open file, read lines, pop out compleded tasks, then if length of new lsit is > 10, for i in ragne(len(lines)-10, len(line): add task to task labels
         # else for len of new list, add to text labels #Swithc to csv
-        with open("tasksFile.txt", "r") as file:
-            lines = file.readlines()
+        if os.path.exists("tasksFile.txt"):
+        # if True:
+            print("exists")
+            with open("tasksFile.txt", "r") as file:
+                lines = file.readlines()
         # print(lines)
-        uncompletedTasks = []
-        RegExCompletedTask = "^.*True"
-        for line in lines:
-            if re.search(RegExCompletedTask, line):
-                uncompletedTasks.append(line)
-        print(uncompletedTasks)
+            uncompletedTasks = []
+            RegExCompletedTask = "^.*True\n$"
+            for line in lines:
+                if not re.search(RegExCompletedTask, line):
+                    uncompletedTasks.append(line)
+            print(uncompletedTasks)
 
-        if len(uncompletedTasks) == 0:
-            pass
+            if len(uncompletedTasks) == 0:
+                pass
             #nothing
-        if len(uncompletedTasks) > 10:
-            for i in range(len(lines) - 10, len(lines)):
-                # self.tasks[i].setVisible(True)
-                text = lines[i][6:]
-                print(text)
-                # self.tasks[i].setText()
+            print(len(lines))
+
+            for i in range(len(uncompletedTasks)):
+                    self.tasks[i].setVisible(True)
+                    self.doneButtons[i].setVisible(True)
+                    text = uncompletedTasks[i].strip('###False\n')
+                    print(text)
+
+                    self.tasks[i].setText(text)
+                    self.tasksIndex = len(uncompletedTasks)
 
 
         self.task1EditButton.clicked.connect(lambda : self.editTask())
@@ -163,14 +173,16 @@ class mainLogic(QMainWindow, Ui_TODOLIST):
         with open("tasksFile.txt", "r") as file:
             lines = file.readlines()
 
-        regExTask = f"^Task: {self.tasks[index].text()}"
+
+
+        regExTask = f"^{self.tasks[index].text()}###"
 
 
         with open("tasksFile.txt", "w") as file:
             for line in lines:
                 if not re.search(regExTask, line):
                     file.write(line)
-            file.write(f"Task: {self.tasks[index].text()}, Completed: {True}\n")
+            file.write(f"{self.tasks[index].text()}###{True}\n")
 
         if self.tasksIndex - 1 == index:
             self.tasks[index].setText("")
@@ -200,28 +212,47 @@ class mainLogic(QMainWindow, Ui_TODOLIST):
         #add remove features
         #Maybe actually pass on this, focus on checking off tasks and adding multiple tasks
 
+    #TODO: check for duplicate tasks,
 
     def addTask(self):
         try:
             task = self.addTasklineEdit.text()
+
             if task == '':
                 raise TypeError
+
+            if os.path.exists("tasksFile.txt"):
+                with open('tasksFile.txt', 'r') as file:
+                    lines = file.readlines()
+                for line in lines:
+                    if re.search(f'{task}###False', line):
+                        raise Exception("Cannot add duplicate task")
+
             self.tasks[self.tasksIndex].setText(task)
             self.tasks[self.tasksIndex].setVisible(True)
             self.doneButtons[self.tasksIndex].setVisible(True)
+
+
         except TypeError:
             self.addTasklabel.setText("Enter a valid task!")
+            self.addTasklabel.setStyleSheet("color: rgb(255, 0, 0);")
+
+        except Exception as e:
+            self.addTasklabel.setText(e)
+            self.addTasklabel.setStyleSheet("color: rgb(255, 0, 0);")
         except IndexError:
             #Catches if there are 10 tasks already, tells user too many tasks
             self.addTasklabel.setText("You have to many tasks!")
             self.addTasklabel.setStyleSheet("color: rgb(255, 0, 0);")
             self.addTasklineEdit.setText("")
+
         else:
             with open('tasksFile.txt', "a") as taskFile:
                 # csv_writer = csv.writer(taskFile)
                 # csv_writer.writerow(task)
                 #maybe add time completed, or time added to file/created
-                taskFile.write(f"Task: {task}, Completed: {False}\n")
+
+                taskFile.write(f"{task}###{False}\n")
 
             self.addTasklineEdit.setText("")
             self.tasksIndex += 1
