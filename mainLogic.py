@@ -5,17 +5,24 @@ import os
 from gui import Ui_TODOLIST
 from guiHistory import *
 from historyLogic import *
-
+#TODO Type hinting!cand Docstrings!
 import main
+
+#https://www.google.com/search?client=safari&rls=en&q=how+to+use+custom+exceptions+in+python&ie=UTF-8&oe=UTF-8
+class DuplicateError(Exception):
+    def __init__(self,message):
+        self.message = message
 
 
 class mainLogic(QMainWindow, Ui_TODOLIST):
     mainIsOpen = True
+    editButtons = []
+    editLines = []
     tasks = []
     doneButtons = []
     tasksIndex = 0
-    def __init__(self):
 
+    def __init__(self):
         super().__init__()
         self.setupUi(self)
         #after visible or before, then set the labels to previous labels.If label doesnt exist, set to invisible
@@ -70,7 +77,7 @@ class mainLogic(QMainWindow, Ui_TODOLIST):
 
 
 
-        #eddit buttons might remove
+        #eddit buttons
         self.task1EditButton.setVisible(False)
         self.task2EditButton.setVisible(False)
         self.task3EditButton.setVisible(False)
@@ -81,6 +88,20 @@ class mainLogic(QMainWindow, Ui_TODOLIST):
         self.task8EditButton.setVisible(False)
         self.task9EditButton.setVisible(False)
         self.task10EditButton.setVisible(False)
+
+        #adding buttons to list
+        self.editButtons.append(self.task1EditButton)
+        self.editButtons.append(self.task2EditButton)
+        self.editButtons.append(self.task3EditButton)
+        self.editButtons.append(self.task4EditButton)
+        self.editButtons.append(self.task5EditButton)
+        self.editButtons.append(self.task6EditButton)
+        self.editButtons.append(self.task7EditButton)
+        self.editButtons.append(self.task8EditButton)
+        self.editButtons.append(self.task9EditButton)
+        self.editButtons.append(self.task10EditButton)
+
+        #edit lines
         self.lineEdit1.setVisible(False)
         self.lineEdit2.setVisible(False)
         self.lineEdit3.setVisible(False)
@@ -92,13 +113,27 @@ class mainLogic(QMainWindow, Ui_TODOLIST):
         self.lineEdit9.setVisible(False)
         self.lineEdit10.setVisible(False)
 
+        #adding edit lines to list
+        self.editLines.append(self.lineEdit1)
+        self.editLines.append(self.lineEdit2)
+        self.editLines.append(self.lineEdit3)
+        self.editLines.append(self.lineEdit4)
+        self.editLines.append(self.lineEdit5)
+        self.editLines.append(self.lineEdit6)
+        self.editLines.append(self.lineEdit7)
+        self.editLines.append(self.lineEdit8)
+        self.editLines.append(self.lineEdit9)
+        self.editLines.append(self.lineEdit10)
+
+
         #see if you can merge pop up to main
         #if taskfile.txt exists
         #Open file, read lines, pop out compleded tasks, then if length of new lsit is > 10, for i in ragne(len(lines)-10, len(line): add task to task labels
         # else for len of new list, add to text labels #Swithc to csv
+
         if os.path.exists("tasksFile.txt"):
         # if True:
-            print("exists")
+        #     print("exists")
             with open("tasksFile.txt", "r") as file:
                 lines = file.readlines()
         # print(lines)
@@ -107,33 +142,34 @@ class mainLogic(QMainWindow, Ui_TODOLIST):
             for line in lines:
                 if not re.search(RegExCompletedTask, line):
                     uncompletedTasks.append(line)
-            print(uncompletedTasks)
+            # print(uncompletedTasks)
 
             if len(uncompletedTasks) == 0:
                 pass
             #nothing
-            print(len(lines))
+            # print(len(lines))
 
             for i in range(len(uncompletedTasks)):
                     self.tasks[i].setVisible(True)
                     self.doneButtons[i].setVisible(True)
+                    self.editButtons[i].setVisible(True)
                     text = uncompletedTasks[i].strip('###False\n')
-                    print(text)
+                    # print(text)
 
                     self.tasks[i].setText(text)
                     self.tasksIndex = len(uncompletedTasks)
 
 
-        self.task1EditButton.clicked.connect(lambda : self.editTask())
-        self.task2EditButton.clicked.connect(lambda: self.editTask())
-        self.task3EditButton.clicked.connect(lambda: self.editTask())
-        self.task4EditButton.clicked.connect(lambda: self.editTask())
-        self.task5EditButton.clicked.connect(lambda: self.editTask())
-        self.task6EditButton.clicked.connect(lambda: self.editTask())
-        self.task7EditButton.clicked.connect(lambda: self.editTask())
-        self.task8EditButton.clicked.connect(lambda: self.editTask())
-        self.task9EditButton.clicked.connect(lambda: self.editTask())
-        self.task10EditButton.clicked.connect(lambda: self.editTask())
+        self.task1EditButton.clicked.connect(lambda : self.editTask(0))
+        self.task2EditButton.clicked.connect(lambda: self.editTask(1))
+        self.task3EditButton.clicked.connect(lambda: self.editTask(2))
+        self.task4EditButton.clicked.connect(lambda: self.editTask(3))
+        self.task5EditButton.clicked.connect(lambda: self.editTask(4))
+        self.task6EditButton.clicked.connect(lambda: self.editTask(5))
+        self.task7EditButton.clicked.connect(lambda: self.editTask(6))
+        self.task8EditButton.clicked.connect(lambda: self.editTask(7))
+        self.task9EditButton.clicked.connect(lambda: self.editTask(8))
+        self.task10EditButton.clicked.connect(lambda: self.editTask(9))
 
 
         self.doneButton1.clicked.connect(lambda: self.completeTask(0))
@@ -187,12 +223,15 @@ class mainLogic(QMainWindow, Ui_TODOLIST):
         if self.tasksIndex - 1 == index:
             self.tasks[index].setText("")
             self.doneButtons[index].setVisible(False)
+            self.editButtons[index].setVisible(False)
+
         else:
             for i in range(index, self.tasksIndex - 1):
                 self.tasks[i].setText(self.tasks[i + 1].text())
 
         self.tasks[self.tasksIndex - 1].setText("")
         self.doneButtons[self.tasksIndex - 1].setVisible(False)
+        self.editButtons[self.tasksIndex- 1].setVisible(False)
 
         self.tasksIndex -= 1
 
@@ -206,18 +245,103 @@ class mainLogic(QMainWindow, Ui_TODOLIST):
         self.historyWindow.setGeometry(geometry)
         self.historyWindow.show()
 
+    #Lets try two differtn things, exception handling separate,
+    #TODO: Change in file!!! freeze other buttons
+    def editTask(self, index):
 
-    def editTask(self):
-        pass
-        #add remove features
-        #Maybe actually pass on this, focus on checking off tasks and adding multiple tasks
+        if self.editButtons[index].text() == "Edit":
+            #disable other buttons .setEnabled(False)
+            self.editLines[index].setVisible(True)
+            self.editButtons[index].setText("Confirm")
 
-    #TODO: check for duplicate tasks,
+            #Disable all other buttons
+            self.addTaskButton.setEnabled(False)
+            for i in range(9):
+                self.doneButtons[i].setEnabled(False)
+
+            for i in range(9):
+                if i != index:
+                    self.editButtons[i].setEnabled(False)
+
+
+
+
+
+
+            #do the exceptopn handling, Maybe do while something try ???
+
+
+
+        else:
+            try:
+                task = self.editLines[index].text()
+                if task == '':
+                    raise TypeError
+                if os.path.exists("tasksFile.txt"):
+                    with open('tasksFile.txt', 'r') as file:
+                        lines = file.readlines()
+                    for line in lines:
+                        if re.search(f'^{task}###False', line):
+                            raise DuplicateError("Cannot add duplicate task")
+            except TypeError:
+                self.editLines[index].setText("")
+                self.addTasklabel.setText("Enter a valid task!")
+                self.addTasklabel.setStyleSheet("color: rgb(255, 0, 0);")
+
+            except DuplicateError as e:
+                self.editLines[index].setText("")
+                self.addTasklabel.setText(e.message)
+                self.addTasklabel.setStyleSheet("color: rgb(255, 0, 0);")
+            else:
+
+                print(task)
+                print(self.tasks[index].text())
+            # self.addTask(task, True)
+            #add the text to indexask line and to file!
+                # editedLines = []
+                with open("tasksFile.txt", "r") as file:
+                    lines = file.readlines()
+                # for line in lines:
+                #     if re.search(f'^{self.tasks[index].text()}###False', line):
+                #         editedLines.append([f"^{task}###False"])
+                #     else:
+                #         editedLines.append(line)
+                # print(editedLines)
+                print(lines)
+                with open("tasksFile.txt", "w") as file:
+                    for line in lines:
+                        print(line)
+                        if re.search(f'^{self.tasks[index].text()}###False', line):
+                            print("found")
+                            file.write(f"{task}###False\n")
+                        else:
+                            file.write(line)
+
+                self.addTaskButton.setEnabled(True)
+                for i in range(9):
+                    self.doneButtons[i].setEnabled(True)
+
+                for i in range(9):
+                    if i != index:
+                        self.editButtons[i].setEnabled(True)
+
+
+                self.tasks[index].setText(task)
+                self.editButtons[index].setText("Edit")
+                self.editLines[index].setText("")
+                self.editLines[index].setVisible(False)
+                self.addTasklabel.setText("Enter a task!")
+                self.addTasklabel.setStyleSheet("color: rgb(255, 255, 255);")
+
+                #Enabling other buttons
+
+
+
+
 
     def addTask(self):
         try:
             task = self.addTasklineEdit.text()
-
             if task == '':
                 raise TypeError
 
@@ -225,11 +349,13 @@ class mainLogic(QMainWindow, Ui_TODOLIST):
                 with open('tasksFile.txt', 'r') as file:
                     lines = file.readlines()
                 for line in lines:
-                    if re.search(f'{task}###False', line):
-                        raise Exception("Cannot add duplicate task")
+                    if re.search(f'^{task}###False', line):
+                        raise DuplicateError("Cannot add duplicate task")
+
 
             self.tasks[self.tasksIndex].setText(task)
             self.tasks[self.tasksIndex].setVisible(True)
+            self.editButtons[self.tasksIndex].setVisible(True)
             self.doneButtons[self.tasksIndex].setVisible(True)
 
 
@@ -237,16 +363,24 @@ class mainLogic(QMainWindow, Ui_TODOLIST):
             self.addTasklabel.setText("Enter a valid task!")
             self.addTasklabel.setStyleSheet("color: rgb(255, 0, 0);")
 
-        except Exception as e:
-            self.addTasklabel.setText(e)
-            self.addTasklabel.setStyleSheet("color: rgb(255, 0, 0);")
         except IndexError:
             #Catches if there are 10 tasks already, tells user too many tasks
             self.addTasklabel.setText("You have to many tasks!")
             self.addTasklabel.setStyleSheet("color: rgb(255, 0, 0);")
             self.addTasklineEdit.setText("")
 
+
+        except DuplicateError as e:
+            self.addTasklabel.setText(e.message)
+            self.addTasklabel.setStyleSheet("color: rgb(255, 0, 0);")
+            self.addTasklineEdit.setText("")
+
+
+
         else:
+
+            self.addTasklabel.setText("Enter a task!")
+            self.addTasklabel.setStyleSheet("color: rgb(255, 255, 255);")
             with open('tasksFile.txt', "a") as taskFile:
                 # csv_writer = csv.writer(taskFile)
                 # csv_writer.writerow(task)
@@ -256,4 +390,6 @@ class mainLogic(QMainWindow, Ui_TODOLIST):
 
             self.addTasklineEdit.setText("")
             self.tasksIndex += 1
+
+
 
