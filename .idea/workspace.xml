@@ -4,11 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="61446308-9c63-429c-8556-13dd468d10a5" name="Changes" comment="Task saving works!, used os to check if tasksFile exists, RegEx. switches state of tasks when completed">
+    <list default="true" id="61446308-9c63-429c-8556-13dd468d10a5" name="Changes" comment="Project Completed, can still add features like sound, second history screen, but requirements are met!">
+      <change afterPath="$PROJECT_DIR$/tasksFile.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gui.py" beforeDir="false" afterPath="$PROJECT_DIR$/gui.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guiHistory.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/historyLogic.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/historyWindow.ui" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mainLogic.py" beforeDir="false" afterPath="$PROJECT_DIR$/mainLogic.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tasksFile.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tasksFile.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/untitled.ui" beforeDir="false" afterPath="$PROJECT_DIR$/untitled.ui" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -206,7 +211,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733345972304</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Completed Edits, file saving and persistance works!">
+      <option name="closed" value="true" />
+      <created>1733502629932</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1733502629932</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -220,7 +233,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="pop-up" />
+                        <option value="main" />
                       </list>
                     </value>
                   </entry>
@@ -236,6 +249,8 @@
     <MESSAGE value="task completion works" />
     <MESSAGE value="completeTask as one function!!!" />
     <MESSAGE value="Switched to pop up history, started file saving, before switch to csv" />
-    <option name="LAST_COMMIT_MESSAGE" value="Switched to pop up history, started file saving, before switch to csv" />
+    <MESSAGE value="Completed Edits, file saving and persistance works!" />
+    <MESSAGE value="Project Completed, can still add features like sound, second history screen, but requirements are met!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Project Completed, can still add features like sound, second history screen, but requirements are met!" />
   </component>
 </project>
