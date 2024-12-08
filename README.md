@@ -8,3 +8,9 @@ Possible Additional Features: Sounds, More tasks, Settings, History window - see
 
 
 <img width="400" alt="Screenshot 2024-12-08 at 12 55 59 PM" src="https://github.com/user-attachments/assets/2b0e3ef5-88f8-4961-abf5-6991b2122133">
+
+
+If you  need to change untitled.ui with QtDesigner, don't forget to regenerate gui.py file using this command:  
+```{r, engine='sh', count_lines}
+pyuic6 untitled.ui -o gui.py
+```
