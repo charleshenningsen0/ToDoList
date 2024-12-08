@@ -5,5 +5,6 @@ Features: Add, edit tasks, persistance, clear history, completed task counter
 Possible Additional Features: Sounds, More tasks, Settings, History window - see previous completed tasks, better looking GUI.
 
 
-<img width="799" alt="Screenshot 2024-12-03 at 10 08 02 AM" src="https://github.com/user-attachments/assets/188abfc7-83c3-4854-9b4f-8976e39b8fef">
 
+
+<img width="871" alt="Screenshot 2024-12-08 at 12 55 59 PM" src="https://github.com/user-attachments/assets/2b0e3ef5-88f8-4961-abf5-6991b2122133">
