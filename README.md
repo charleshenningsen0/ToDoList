@@ -12,5 +12,5 @@ Possible Additional Features: Sounds, More tasks, Settings, History window - see
 
 If you  need to change untitled.ui with QtDesigner, don't forget to regenerate gui.py file using this command:  
 ```{r, engine='sh', count_lines}
-pyuic6 untitled.ui -o gui.py
+pyuic6 -x untitled.ui -o gui.py
 ```
