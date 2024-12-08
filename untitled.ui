@@ -123,7 +123,7 @@
     <widget class="QPushButton" name="task1EditButton">
      <property name="geometry">
       <rect>
-       <x>500</x>
+       <x>530</x>
        <y>60</y>
        <width>71</width>
        <height>32</height>
@@ -202,7 +202,7 @@
     <widget class="QPushButton" name="task4EditButton">
      <property name="geometry">
       <rect>
-       <x>500</x>
+       <x>530</x>
        <y>180</y>
        <width>71</width>
        <height>32</height>
@@ -215,7 +215,7 @@
     <widget class="QPushButton" name="task3EditButton">
      <property name="geometry">
       <rect>
-       <x>500</x>
+       <x>530</x>
        <y>140</y>
        <width>71</width>
        <height>32</height>
@@ -228,7 +228,7 @@
     <widget class="QPushButton" name="task8EditButton">
      <property name="geometry">
       <rect>
-       <x>500</x>
+       <x>530</x>
        <y>340</y>
        <width>71</width>
        <height>32</height>
@@ -274,7 +274,7 @@
     <widget class="QPushButton" name="task6EditButton">
      <property name="geometry">
       <rect>
-       <x>500</x>
+       <x>530</x>
        <y>260</y>
        <width>71</width>
        <height>32</height>
@@ -353,7 +353,7 @@
     <widget class="QPushButton" name="task5EditButton">
      <property name="geometry">
       <rect>
-       <x>500</x>
+       <x>530</x>
        <y>220</y>
        <width>71</width>
        <height>32</height>
@@ -366,7 +366,7 @@
     <widget class="QPushButton" name="task7EditButton">
      <property name="geometry">
       <rect>
-       <x>500</x>
+       <x>530</x>
        <y>300</y>
        <width>71</width>
        <height>32</height>
@@ -467,7 +467,7 @@
     <widget class="QPushButton" name="task2EditButton">
      <property name="geometry">
       <rect>
-       <x>500</x>
+       <x>530</x>
        <y>100</y>
        <width>71</width>
        <height>32</height>
@@ -480,101 +480,151 @@
     <widget class="QLineEdit" name="lineEdit1">
      <property name="geometry">
       <rect>
-       <x>640</x>
+       <x>610</x>
        <y>60</y>
-       <width>181</width>
+       <width>221</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
      </property>
     </widget>
     <widget class="QLineEdit" name="lineEdit2">
      <property name="geometry">
       <rect>
-       <x>640</x>
+       <x>610</x>
        <y>100</y>
-       <width>181</width>
+       <width>221</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
      </property>
     </widget>
     <widget class="QLineEdit" name="lineEdit3">
      <property name="geometry">
       <rect>
-       <x>640</x>
+       <x>610</x>
        <y>140</y>
-       <width>181</width>
+       <width>221</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
      </property>
     </widget>
     <widget class="QLineEdit" name="lineEdit4">
      <property name="geometry">
       <rect>
-       <x>640</x>
+       <x>610</x>
        <y>180</y>
-       <width>181</width>
+       <width>221</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
      </property>
     </widget>
     <widget class="QLineEdit" name="lineEdit5">
      <property name="geometry">
       <rect>
-       <x>640</x>
+       <x>610</x>
        <y>220</y>
-       <width>181</width>
+       <width>221</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
      </property>
     </widget>
     <widget class="QLineEdit" name="lineEdit6">
      <property name="geometry">
       <rect>
-       <x>640</x>
+       <x>610</x>
        <y>260</y>
-       <width>181</width>
+       <width>221</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
      </property>
     </widget>
     <widget class="QLineEdit" name="lineEdit7">
      <property name="geometry">
       <rect>
-       <x>640</x>
+       <x>610</x>
        <y>300</y>
-       <width>181</width>
+       <width>221</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
      </property>
     </widget>
     <widget class="QLineEdit" name="lineEdit8">
      <property name="geometry">
       <rect>
-       <x>640</x>
+       <x>610</x>
        <y>340</y>
-       <width>181</width>
+       <width>221</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
      </property>
     </widget>
     <widget class="QLineEdit" name="lineEdit10">
      <property name="geometry">
       <rect>
-       <x>640</x>
+       <x>610</x>
        <y>420</y>
-       <width>181</width>
+       <width>221</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
      </property>
     </widget>
     <widget class="QLineEdit" name="lineEdit9">
      <property name="geometry">
       <rect>
-       <x>640</x>
+       <x>610</x>
        <y>380</y>
-       <width>181</width>
+       <width>221</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>10</pointsize>
+      </font>
      </property>
     </widget>
     <widget class="QLabel" name="task10Label">
@@ -613,7 +663,7 @@
     <widget class="QPushButton" name="task10EditButton">
      <property name="geometry">
       <rect>
-       <x>500</x>
+       <x>530</x>
        <y>420</y>
        <width>71</width>
        <height>32</height>
@@ -659,7 +709,7 @@
     <widget class="QPushButton" name="task9EditButton">
      <property name="geometry">
       <rect>
-       <x>500</x>
+       <x>530</x>
        <y>380</y>
        <width>71</width>
        <height>32</height>
@@ -800,33 +850,7 @@
      </property>
     </widget>
    </widget>
-   <widget class="QProgressBar" name="progressBar">
-    <property name="geometry">
-     <rect>
-      <x>110</x>
-      <y>600</y>
-      <width>561</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="value">
-     <number>0</number>
-    </property>
-   </widget>
-   <widget class="QLabel" name="progressLabel">
-    <property name="geometry">
-     <rect>
-      <x>110</x>
-      <y>650</y>
-      <width>151</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Progress</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="HistoryWindowButton">
+   <widget class="QPushButton" name="clearHistoryButton">
     <property name="geometry">
      <rect>
       <x>720</x>
@@ -836,7 +860,48 @@
      </rect>
     </property>
     <property name="text">
-     <string>History</string>
+     <string>Clear History</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>620</y>
+      <width>231</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>PT Mono</family>
+      <pointsize>24</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Tasks Completed:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="tasksCompleted">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>620</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>30</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>0</string>
     </property>
    </widget>
   </widget>
