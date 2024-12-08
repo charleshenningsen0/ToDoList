@@ -7,4 +7,4 @@ Possible Additional Features: Sounds, More tasks, Settings, History window - see
 
 
 
-<img width="871" alt="Screenshot 2024-12-08 at 12 55 59 PM" src="https://github.com/user-attachments/assets/2b0e3ef5-88f8-4961-abf5-6991b2122133">
+<img width="400" alt="Screenshot 2024-12-08 at 12 55 59 PM" src="https://github.com/user-attachments/assets/2b0e3ef5-88f8-4961-abf5-6991b2122133">
