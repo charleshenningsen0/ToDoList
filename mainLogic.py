@@ -21,7 +21,7 @@ class DuplicateError(Exception):
         :param message: string of message sent if error
         '''
         self.message: str = message
-    #end cited code
+#end cited code
 
 
 class mainLogic(QMainWindow, Ui_TODOLIST):
@@ -146,7 +146,6 @@ class mainLogic(QMainWindow, Ui_TODOLIST):
         self.editLines.append(self.lineEdit10)
 
 
-
         #Persistance, keeps the uncompleted tasks displayed even when app is closed.
         if os.path.exists("tasksFile.txt"):
             with open("tasksFile.txt", "r") as file:
@@ -158,6 +157,9 @@ class mainLogic(QMainWindow, Ui_TODOLIST):
                 #If uncompleted, then added to uncompleted tasks
                 if re.search(RegExCompletedTask, line):
                     uncompletedTasks.append(line)
+                #Otherwise add to tasks completed
+                else:
+                    self.tasksCompleted.setText(str(int(self.tasksCompleted.text()) + 1))
 
             #Updates GUI and variables accordingly
             for i in range(len(uncompletedTasks)):
@@ -169,6 +171,7 @@ class mainLogic(QMainWindow, Ui_TODOLIST):
                     self.editButtons[i].setVisible(True)
 
                     self.tasksIndex = len(uncompletedTasks)
+
 
         #Connecting buttons to actions
         self.task1EditButton.clicked.connect(lambda : self.editTask(0))
@@ -317,7 +320,6 @@ class mainLogic(QMainWindow, Ui_TODOLIST):
                 self.addTasklabel.setStyleSheet("color: rgb(255, 0, 0);")
 
             except DuplicateError as e:
-                self.editLines[index].setText("")
                 self.addTasklabel.setText(e.message)
                 self.addTasklabel.setStyleSheet("color: rgb(255, 0, 0);")
 
@@ -390,7 +392,6 @@ class mainLogic(QMainWindow, Ui_TODOLIST):
         except DuplicateError as e:
             self.addTasklabel.setText(e.message)
             self.addTasklabel.setStyleSheet("color: rgb(255, 0, 0);")
-            self.addTasklineEdit.setText("")
 
 
         else:
