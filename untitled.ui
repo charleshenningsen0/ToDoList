@@ -6,13 +6,19 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>871</width>
+    <width>900</width>
     <height>760</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>800</width>
+    <width>900</width>
+    <height>760</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>900</width>
     <height>760</height>
    </size>
   </property>
@@ -25,7 +31,7 @@
      <rect>
       <x>60</x>
       <y>10</y>
-      <width>691</width>
+      <width>701</width>
       <height>61</height>
      </rect>
     </property>
@@ -38,7 +44,7 @@
     <widget class="QPushButton" name="addTaskButton">
      <property name="geometry">
       <rect>
-       <x>140</x>
+       <x>100</x>
        <y>10</y>
        <width>113</width>
        <height>32</height>
@@ -51,9 +57,9 @@
     <widget class="QLabel" name="addTasklabel">
      <property name="geometry">
       <rect>
-       <x>500</x>
+       <x>510</x>
        <y>20</y>
-       <width>151</width>
+       <width>181</width>
        <height>16</height>
       </rect>
      </property>
@@ -64,9 +70,9 @@
     <widget class="QLineEdit" name="addTasklineEdit">
      <property name="geometry">
       <rect>
-       <x>260</x>
+       <x>230</x>
        <y>10</y>
-       <width>211</width>
+       <width>261</width>
        <height>31</height>
       </rect>
      </property>
@@ -910,7 +916,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>871</width>
+     <width>900</width>
      <height>43</height>
     </rect>
    </property>
